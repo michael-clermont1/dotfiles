@@ -51,5 +51,20 @@ git config --global fetch.prune true
 ssh-keygen -t ed25519 -C "michael.clermont@mths.ca"
 ssh-add ~/.ssh/id_ed25519
 cat ~/.ssh/id_ed25519.pub
+echo "Press enter once you add the SSH key into github"
 read blank
 ssh -T git@github.com
+
+# Load .bachrc file
+~/.bashrc
+cp ~/dotfiles/.bashrc ~/.bashrc
+
+# Setup typescript
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source ~/.bashrc
+command -v nvm
+nvm install node --lst
+nvm install-latest-npm
